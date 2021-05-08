@@ -1,0 +1,44 @@
+body {
+    background-color: #afafaf;
+}
+/* Flyouts */
+.flyout-container {
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.mega-flyout {
+    z-index: -1;
+    background: black;
+    color: white;
+    padding: 10px;
+    animation: fadeOut 0.25s normal forwards;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.mega-flyout.active, 
+.mega-flyout:hover {
+    display: block;
+    animation: fadeIn 0.25s normal forwards;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+     }
+     100% {
+        opacity: 1;
+        transform: translateY(0);
+     }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+     }
+     100% {
+        opacity: 0;
+        transform: translateY(-100px);
+     }
+}

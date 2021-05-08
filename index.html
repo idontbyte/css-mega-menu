@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Mega Menu</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar navbar-expand-lg navbar-dark bg-dark p-0">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#link1-flyout">Link 1</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#link2-flyout">Link 2</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#link3-flyout">Link 3</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#link4-flyout">Link 4</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="flyout-container">
+        <div class="mega-flyout" id="link1-flyout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1>Link 1 flyout</h1>
+                        <ul>
+                            <li>Point 1</li>
+                            <li>Point 1</li>
+                            <li>Point 1</li>
+                            <li>Point 1</li>
+                            <li>Point 1</li>
+                            <li>Point 1</li>
+                        </ul>
+                        <p>Really cool stuff</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="http://placekitten.com/200/300">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mega-flyout" id="link2-flyout">
+            <h1>Link 2 flyout</h1>
+        </div>
+        <div class="mega-flyout" id="link3-flyout">
+            <h1>Link 3 flyout</h1>
+        </div>
+        <div class="mega-flyout" id="link4-flyout">
+            <h1>Link 4 flyout</h1>
+        </div>
+    </div>
+    <script>
+        var links = document.querySelectorAll(".nav-link");
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener("mouseover", function (event) {
+                var aTag = event.target;
+                var megaFlyoutId = aTag.getAttribute('href');
+                var megaFlyoutElement = document.getElementById(megaFlyoutId.replace("#", ""));
+                megaFlyoutElement.classList.add("active");
+            }, false);
+            links[i].addEventListener("mouseout", function (event) {
+                var aTag = event.target;
+                var megaFlyoutId = aTag.getAttribute('href');
+                var megaFlyoutElement = document.getElementById(megaFlyoutId.replace("#", ""));
+                megaFlyoutElement.classList.remove("active");
+            }, false);
+        }
+    </script>
+</body>
+
+</html>
